@@ -13,12 +13,20 @@ class Person
         $this->lastname=$lastname;
     }
 
-    public function setDirtyClothes(Laundry $clothes, $items)
+    public function setDirtyClothes($items)
     {
-        $this->clothes=$clothes;
+        $this->clothes = new Laundry();
         $this->clothes->items=$items;
         $this->clothes->isDirty=true;
     }
+
+    public function sendToClean(Cleaner $cleaner)
+    {
+        $this->setDirtyClothes(array('shorts','pants'));
+        $this->clothes=$cleaner->cleanClothes($this->clothes);
+    }
+
+
 
 
 

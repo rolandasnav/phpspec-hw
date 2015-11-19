@@ -19,9 +19,14 @@ class PersonSpec extends ObjectBehavior
         $this->beConstructedWith('jonas','jonaitis');
     }
 
-    function it_sets_persons_dirty_clothes(Laundry $clothes)
+    function it_sets_persons_dirty_clothes()
     {
-        $this->setDirtyClothes($clothes, array('shorts','pants'));
+        $this->setDirtyClothes(array('shorts','pants'));
+    }
+
+    function it_sends_clothes_to_cleaners(Cleaner $cleaner)
+    {
+        $this->sendToClean($cleaner);
     }
 
 
